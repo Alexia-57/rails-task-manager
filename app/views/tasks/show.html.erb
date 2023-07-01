@@ -1,19 +1,26 @@
 <h1><%= @task.title %></h1>
 
-<%= @task.details %>
-<%= @task.completed ? 'yes' : 'no' %>
-
 <div>
-  <%= link_to "Back to list", tasks_path(@tasks_path) %>
+  <%= @task.details %>
 </div>
 
 <div>
-  <%= link_to "Edit task", edit_task_path(@task) %>
+  <%= @task.completed ? 'yes' : 'no' %>
 </div>
 
 <div>
-  <%= link_to "Delete",
-    task_path(@task),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
+  <div class="btn btn-primary">
+    <%= link_to "Back to list", tasks_path(@tasks_path) %>
+  </div>
+
+  <div class="btn btn-primary">
+    <%= link_to "Edit task", edit_task_path(@task) %>
+  </div>
+
+  <div class="btn btn-danger">
+    <%= link_to "Delete",
+      task_path(@task),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    %>
+  </div>
 </div>
