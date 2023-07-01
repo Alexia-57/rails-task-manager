@@ -2,6 +2,6 @@
 
 <ul>
   <% @tasks.each do |task| %>
-    <li><%= task.title %></li>
+    <li><%= link_to task.title, task_path(task) %></li> <!--if click task, go to its details page (task being prefix for show route-->
   <% end %>
 </ul>
